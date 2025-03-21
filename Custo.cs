@@ -14,6 +14,26 @@ public class Custo
         return _id;
     }
 
+    public void ChangeDescription(string newDescription)
+    {
+        Description = newDescription;
+    }
+
+    public void ChangeAmount(double newAmount)
+    {
+        Amount = newAmount;
+    }
+
+    
+
+    
+    
+    /// <summary>
+    /// Construtor
+    /// </summary>
+    /// <param name="id"> id do cadastro </param>
+    /// <param name="description"> oq é </param>
+    /// <param name="amount"> valor </param>
     public Custo(int id, string description, double amount)
     {
         _id = id;
