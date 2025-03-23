@@ -23,9 +23,7 @@ public class Custo
     {
         Amount = newAmount;
     }
-
     
-
     
     
     /// <summary>

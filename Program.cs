@@ -30,29 +30,35 @@ class Program
             Console.WriteLine("2 - Alterar Item:");
             Console.WriteLine("3 - Remover Item:");
             Console.WriteLine("0 - Sair");
+            Console.WriteLine("-------------////---------------");
             option = int.Parse(Console.ReadLine());
 
 
             switch (option)
             {
                 case 1:
-                    Console.WriteLine("Digite o item e o valor:");
+                    Console.WriteLine("Digite o item:");
                     String item = Console.ReadLine();
+                    Console.WriteLine("-------------------------------");
+                    Console.WriteLine("Digite o valor do item:");
                     double Valor = double.Parse(Console.ReadLine());
+                    Console.WriteLine("-------------------------------");
                     ExpenseList.Add(new Custo(id, item, Valor));
                     id++;
                     break;
-
                 case 2:
                     // adicionar a função para pegar o id para saber qual item alterar
                     Console.WriteLine("Digite o id do item:");
+                    Console.WriteLine("-------------------------------");
                     int ChangeAmountOrDescription = int.Parse(Console.ReadLine());
 
                     Console.WriteLine("Alterar descrição digitar 1:");
                     Console.WriteLine("Alterar valor digitar 2:");
                     Console.WriteLine("Sair da alteração digitar 0:");
-
+                    Console.WriteLine("-------------------------------");
                     int OptionAmountOrDescripion = int.Parse(Console.ReadLine());
+
+                    int index = Utility.FindIndex(ChangeAmountOrDescription, ExpenseList);
 
 
                     while (OptionAmountOrDescripion != 0)
@@ -62,27 +68,43 @@ class Program
                             Console.WriteLine("Digite nova descrição:");
                             string newDescription = Console.ReadLine();
 
-                            int index = Utility.FindIndex(ChangeAmountOrDescription, ExpenseList);
                             if (index < 0)
                             {
                                 Console.WriteLine("Item não encontrado");
+                                Console.WriteLine("-------------------------------");
                             }
                             else
                             {
                                 Custo custo = ExpenseList[index];
                                 custo.ChangeDescription(newDescription);
+                                Console.WriteLine("Descrição alterada com sucesso");
+                                Console.WriteLine("-------------------------------");
+                                break;
                             }
-//------------
-
-                            Console.WriteLine("Descrição alterada com sucesso");
                         }
                         else if (OptionAmountOrDescripion == 2)
                         {
-                            Console.WriteLine("Valor alterada com sucesso");
+                            Console.WriteLine("Digite o novo valor:");
+                            double newAmount = double.Parse(Console.ReadLine());
+
+                            if (index < 0)
+                            {
+                                Console.WriteLine("Item não encontrado");
+                                Console.WriteLine("-------------------------------");
+                            }
+                            else
+                            {
+                                Custo custo = ExpenseList[index];
+                                custo.ChangeAmount(newAmount);
+                                Console.WriteLine("Valor alterado com sucesso");
+                                Console.WriteLine("-------------------------------");
+                            }
                         }
                         else
                         {
-                            Console.WriteLine("Digite um 1 ou 2");
+                            Console.WriteLine("Digite um 1 ou 2:");
+                            OptionAmountOrDescripion = int.Parse(Console.ReadLine());
+                            Console.WriteLine("-------------------------------");
                         }
                     }
 
