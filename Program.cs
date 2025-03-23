@@ -47,7 +47,7 @@ class Program
                     id++;
                     break;
                 case 2:
-                    // adicionar a função para pegar o id para saber qual item alterar
+
                     Console.WriteLine("Digite o id do item:");
                     Console.WriteLine("-------------------------------");
                     int ChangeAmountOrDescription = int.Parse(Console.ReadLine());

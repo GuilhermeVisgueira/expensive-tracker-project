@@ -8,7 +8,7 @@ public class Custo
     public string Description { private set; get; } = string.Empty;
     public DateTime Date { private set; get; }
     private int _id;
-    
+
     public int GetId()
     {
         return _id;
@@ -23,9 +23,8 @@ public class Custo
     {
         Amount = newAmount;
     }
-    
-    
-    
+
+
     /// <summary>
     /// Construtor
     /// </summary>
@@ -39,6 +38,4 @@ public class Custo
         Amount = amount;
         Date = DateTime.Now;
     }
-
-    
 }

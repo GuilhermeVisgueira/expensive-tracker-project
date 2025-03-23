@@ -1,4 +1,6 @@
-﻿namespace ExpenseTracker;
+﻿using System.ComponentModel;
+
+namespace ExpenseTracker;
 
 /// <summary>
 /// Guardar as funções que são mais utilizadas para diminuir redundancias
@@ -23,13 +25,30 @@ public static class Utility
         //achar o index da lista
         for (int indexList = 0; indexList < lista.Count; indexList++)
         {
+            // item que é do tipo custo quando recebe o index de lista( que tbm é do tipo custo) ira receber todas as informações do obj)
             Custo item = lista[indexList];
             if (item.GetId() == id)
             {
                 return indexList;
             }
-            
         }
+
         return -1;
+    }
+
+    public static Custo ShowIdItemAmount (int id, List<Custo> lista)
+    {
+        //MOSTRAR ID DESCRIÇAO/ITEM E VALOR
+        Custo informacaoGeralAux = null;
+
+        for (int indexList = 0; indexList < lista.Count; indexList++)
+        {
+            Custo informacaoGeral = lista[indexList];
+            if (informacaoGeral.GetId() == id)
+            {
+                informacaoGeralAux = lista[indexList];
+            }
+        }
+        return informacaoGeralAux;
     }
 }
