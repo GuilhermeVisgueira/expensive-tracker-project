@@ -7,26 +7,38 @@ namespace ExpenseTracker;
 /// </summary>
 public static class Utility
 {
-
     public static int MenuInicial()
     {
         int optionMenu = 0;
         Console.WriteLine("-------------------------------");
         Console.WriteLine("             MENU              ");
         Console.WriteLine("Lista de itens:");
-        Console.WriteLine("1 - Adicionar Item:");
-        Console.WriteLine("2 - Alterar Item:");
-        Console.WriteLine("3 - Remover Item:");
+        Console.WriteLine("1 - Adicionar item:");
+        Console.WriteLine("2 - Alterar item:");
+        Console.WriteLine("3 - Remover item:");
+        Console.WriteLine("4 - Visualizar itens:");
         Console.WriteLine("0 - Sair");
         Console.WriteLine("-------------////---------------");
-        return  optionMenu = int.Parse(Console.ReadLine());
+        return optionMenu = int.Parse(Console.ReadLine());
     }
-    
+
+    public static double ReturnAmountWithMensage(string mensage)
+    {
+        Console.WriteLine(mensage);
+        return double.Parse(Console.ReadLine());
+    }
+
     // Print a message and read a string from the console
     public static string PrintAndRead(string message)
     {
         Console.WriteLine(message);
         return Console.ReadLine();
+    }
+
+    public static int ReturnIntMensage(string message)
+    {
+        Console.WriteLine(message);
+        return int.Parse(Console.ReadLine());
     }
 
     /// <summary>
@@ -48,10 +60,11 @@ public static class Utility
             }
         }
 
+        // index negativo = nao existe
         return -1;
     }
 
-    public static Custo ShowIdItemAmount (int id, List<Custo> lista)
+    public static Custo ShowIdItemAmount(int id, List<Custo> lista)
     {
         //MOSTRAR ID DESCRIÇAO/ITEM E VALOR
         Custo informacaoGeralAux = null;
@@ -64,6 +77,9 @@ public static class Utility
                 informacaoGeralAux = lista[indexList];
             }
         }
+
         return informacaoGeralAux;
     }
+
+    
 }

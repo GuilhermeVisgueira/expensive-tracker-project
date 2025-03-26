@@ -24,6 +24,11 @@ public class Custo
         Amount = newAmount;
     }
 
+    public override string ToString()
+    {
+        
+        return $"{_id} - {Description} - R${Amount}";
+    }
 
     /// <summary>
     /// Construtor
