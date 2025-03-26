@@ -17,46 +17,32 @@ class Program
     public static void Main()
     {
         List<Custo> ExpenseList = new List<Custo>();
-
-        // loop de um menu
+        
         int option = 0;
         int id = 1;
+        //Menu
         do
         {
-            Console.WriteLine("-------------------------------");
-            Console.WriteLine("             MENU              ");
-            Console.WriteLine("Lista de itens:");
-            Console.WriteLine("1 - Adicionar Item:");
-            Console.WriteLine("2 - Alterar Item:");
-            Console.WriteLine("3 - Remover Item:");
-            Console.WriteLine("0 - Sair");
-            Console.WriteLine("-------------////---------------");
-            option = int.Parse(Console.ReadLine());
-
-
+            
+            option = Utility.MenuInicial();
+            
             switch (option)
             {
                 case 1:
-                    Console.WriteLine("Digite o item:");
-                    String item = Console.ReadLine();
+                    String item = Utility.PrintAndRead("Digite o item:");
                     Console.WriteLine("-------------------------------");
-                    Console.WriteLine("Digite o valor do item:");
-                    double Valor = double.Parse(Console.ReadLine());
+                    double Valor = double.Parse(Utility.PrintAndRead("Digite o valor do item:"));
                     Console.WriteLine("-------------------------------");
                     ExpenseList.Add(new Custo(id, item, Valor));
                     id++;
                     break;
                 case 2:
-
-                    Console.WriteLine("Digite o id do item:");
+                    int ChangeAmountOrDescription = int.Parse(Utility.PrintAndRead("Digite o id do item:"));
                     Console.WriteLine("-------------------------------");
-                    int ChangeAmountOrDescription = int.Parse(Console.ReadLine());
-
                     Console.WriteLine("Alterar descrição digitar 1:");
                     Console.WriteLine("Alterar valor digitar 2:");
-                    Console.WriteLine("Sair da alteração digitar 0:");
+                    int OptionAmountOrDescripion = int.Parse(Utility.PrintAndRead("Sair da alteração digitar 0:"));
                     Console.WriteLine("-------------------------------");
-                    int OptionAmountOrDescripion = int.Parse(Console.ReadLine());
 
                     int index = Utility.FindIndex(ChangeAmountOrDescription, ExpenseList);
 
@@ -65,9 +51,8 @@ class Program
                     {
                         if (OptionAmountOrDescripion == 1)
                         {
-                            Console.WriteLine("Digite nova descrição:");
-                            string newDescription = Console.ReadLine();
-
+                            string newDescription = Utility.PrintAndRead("Digite nova descrição:");
+                            
                             if (index < 0)
                             {
                                 Console.WriteLine("Item não encontrado");
@@ -121,5 +106,6 @@ class Program
                     break;
             }
         } while (option != 0);
+        
     }
 }

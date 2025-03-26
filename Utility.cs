@@ -7,6 +7,21 @@ namespace ExpenseTracker;
 /// </summary>
 public static class Utility
 {
+
+    public static int MenuInicial()
+    {
+        int optionMenu = 0;
+        Console.WriteLine("-------------------------------");
+        Console.WriteLine("             MENU              ");
+        Console.WriteLine("Lista de itens:");
+        Console.WriteLine("1 - Adicionar Item:");
+        Console.WriteLine("2 - Alterar Item:");
+        Console.WriteLine("3 - Remover Item:");
+        Console.WriteLine("0 - Sair");
+        Console.WriteLine("-------------////---------------");
+        return  optionMenu = int.Parse(Console.ReadLine());
+    }
+    
     // Print a message and read a string from the console
     public static string PrintAndRead(string message)
     {
